@@ -1,0 +1,120 @@
+/*--------------------------------------------------------------
+If no grid support, limit width to 50em and center align. This is for IE
+--------------------------------------------------------------*/
+body {
+    font-family: 'Helvetica', Arial, sans-serif;
+    background-color: rgb(70, 170, 170);
+    color: rgb(84, 93, 101);
+    font-size: 1.1em;
+}
+
+.containall {
+    margin: 1.7em
+}
+
+p {
+    margin: auto;
+    line-height: 2em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.7em;
+    text-transform: uppercase;
+    color: rgb(57, 57, 57)
+}
+
+h2 {
+    font-size: 1.3em
+}
+
+b {
+    font-weight: 700
+}
+
+.inner-banner {
+    background-color: rgb(12, 78, 78);
+    padding: 20px;
+    margin: 10px;
+    color: rgb(147, 235, 205);
+}
+
+.innersection {
+    background-color: rgb(147, 235, 205);
+    margin: 10px;
+    padding: 15px;
+    min-height: 60px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+/* FLEXBOX:
+============================================= */
+@supports not (display: grid) {
+    .page-title,
+    .main-content,
+    .sidebar {
+        max-width: 50em;
+        margin: 0 auto;
+    }
+}
+
+@supports (display: grid) {
+    @media screen and (min-width: 800px) {
+        /* The "fr" here represents the "fraction" of space in the grid.
+        So when we scale back the window to 800px (or your ipad) the aside
+        and sidebar are 50/50 on what space they take up */
+        .site {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            grid-template-areas:
+                "content-head content-head"
+                "main aside"
+                "main sidebar"
+                "footer footer";
+        }
+
+        .masthead {
+            grid-area: aside;
+        }
+
+        .page-title {
+            grid-area: content-head;
+        }
+
+        .main-content {
+            grid-area: main;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+        }
+
+        .colophon {
+            grid-area: footer;
+        }
+
+    }
+
+    @media screen and (min-width: 1200px) {
+        .site {
+            grid-template-columns: 2fr 1fr;
+            grid-template-areas:
+                "content-head content-head content-head"
+                "main aside aside"
+                "main sidebar footer";
+        }
+    }
+}
