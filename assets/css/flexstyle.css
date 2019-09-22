@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-If no grid support, limit width to 50em and center align. This is for IE
+The spacing, color & typography:
 --------------------------------------------------------------*/
 body {
     font-family: 'Helvetica', Arial, sans-serif;
@@ -59,8 +59,15 @@ b {
     -o-border-radius: 12px;
 }
 
-/* FLEXBOX:
-============================================= */
+.site {
+    transition: opacity 2s;
+}
+
+/* FLEXBOX STYLE: */
+/*--------------------------------------------------------------
+If no grid support, limit width to 50em and center align. This is for IE
+The spacing, color & typography:
+--------------------------------------------------------------*/
 @supports not (display: grid) {
     .page-title,
     .main-content,
@@ -72,6 +79,7 @@ b {
 
 @supports (display: grid) {
     @media screen and (min-width: 800px) {
+
         /* The "fr" here represents the "fraction" of space in the grid.
         So when we scale back the window to 800px (or your ipad) the aside
         and sidebar are 50/50 on what space they take up */
@@ -79,14 +87,13 @@ b {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto 1fr;
-            grid-template-areas:
-                "content-head content-head"
-                "main aside"
-                "main sidebar"
-                "footer footer";
+            grid-template-areas: "content-head content-head"
+            "main aside"
+            "main sidebar"
+            "footer footer";
         }
 
-        .masthead {
+        .mastaside {
             grid-area: aside;
         }
 
@@ -111,10 +118,7 @@ b {
     @media screen and (min-width: 1200px) {
         .site {
             grid-template-columns: 2fr 1fr;
-            grid-template-areas:
-                "content-head content-head content-head"
-                "main aside aside"
-                "main sidebar footer";
+            grid-template-areas: "content-head content-head content-head""main aside aside""main sidebar footer";
         }
     }
 }
