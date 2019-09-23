@@ -64,7 +64,7 @@ b {
 }
 
 /* For the animation: */
-.flexbox,
+.container-grid,
 .face,
 .cricle,
 .asidefooter,
@@ -159,7 +159,7 @@ The spacing, color & typography:
         margin-bottom: -38px;
     }
 
-    .flexbox {
+    .container-grid {
         box-shadow: 0 0 0px 5px #1d475f;
         padding: 10px;
         border-radius: 20px;
@@ -195,14 +195,14 @@ The spacing, color & typography:
         right: 10%;
     }
 }
-/* FLEXBOX: */
+/* container-grid: */
 @supports (display: grid) {
     @media screen and (min-width: 800px) {
 
         /* The "fr" here represents the "fraction" of space in the grid.
         So when we scale back the window to 800px (or your ipad) the aside
         and sidebar are 50/50 on what space they take up */
-        .flexbox {
+        .container-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto 1fr;
@@ -238,7 +238,7 @@ The spacing, color & typography:
     }
 
     @media screen and (min-width: 1200px) {
-        .flexbox {
+        .container-grid {
             grid-template-columns: 1fr 1fr;
             grid-template-areas:
                 "main aside"
