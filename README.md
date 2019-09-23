@@ -1,4 +1,4 @@
-# Flexbox example
+# CSS Grid example
 In recent years, flexbox has pretty much taken web design by storm, Bootstrap uses it, big tech companies use it, yo mama uses it. Rather than eye-balling and creating confusing floats, this layout method helps us create elements that will flexible to changing screen widths. Feel free to clone this, and mess around a bit. 
 
 Also, checkout these articles and videos to get a idea sense of why developers and designers love it and how to use it:
