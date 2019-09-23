@@ -1,10 +1,10 @@
 /*--------------------------------------------------------------
-The spacing, color & typography:
+The first classes are just color & typography. But note the "grid-area" specification
 --------------------------------------------------------------*/
 body {
     font-family: 'Helvetica', Arial, sans-serif;
     background-color: rgb(70, 170, 170);
-    color: rgb(84, 93, 101);
+    color: rgb(12, 78, 78);
     font-size: 1.1em;
 }
 
@@ -14,7 +14,6 @@ body {
 
 p {
     margin: auto;
-    line-height: 2em;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -24,7 +23,8 @@ h1 {
     font-weight: 600;
     font-size: 1.7em;
     text-transform: uppercase;
-    color: rgb(57, 57, 57)
+    color: rgb(12, 78, 78);
+
 }
 
 h2 {
@@ -59,16 +59,58 @@ b {
     -o-border-radius: 12px;
 }
 
-.site {
-    transition: opacity 2s;
+.mastaside {
+    min-height: 200px
 }
 
-/* FLEXBOX STYLE: */
+/* For the animation: */
+.flexbox,
+.face,
+.cricle,
+.asidefooter,
+body {
+    transition: ease all .5s;
+}
+
+.secretmsg {
+    color: transparent
+}
+
+.asidefooter {
+    align-self: flex-end;
+    background-image: linear-gradient(to right, rgb(12, 78, 78), rgb(70, 170, 170));
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    margin: 10px;
+    min-height: 40px;
+    grid-area: asidefooter;
+}
+
+.circle {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 5%;
+    border-radius: 50%;
+    background-color: rgb(12, 78, 78);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 0 0 0px 5px rgb(70, 170, 170);
+
+}
+
+
 /*--------------------------------------------------------------
 If no grid support, limit width to 50em and center align. This is for IE
 The spacing, color & typography:
 --------------------------------------------------------------*/
 @supports not (display: grid) {
+
     .page-title,
     .main-content,
     .sidebar {
@@ -77,20 +119,101 @@ The spacing, color & typography:
     }
 }
 
+@media screen and (max-width: 500px) {
+    body {
+        background: #2d2d2d;
+        color: rgb(111, 111, 111)
+    }
+
+    h1 {
+        color: rgb(70, 170, 170)
+    }
+
+    .secretmsg {
+        color: gray;
+        padding: 20px;
+        width: 300px;
+        margin-top: 15px;
+        background: white;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        position: relative;
+        border-radius: .4em;
+    }
+
+    .secretmsg:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 38px solid transparent;
+        border-top-color: white;
+        border-bottom: 0;
+        border-left: 0;
+        margin-left: -19px;
+        margin-bottom: -38px;
+    }
+
+    .flexbox {
+        box-shadow: 0 0 0px 5px #1d475f;
+        padding: 10px;
+        border-radius: 20px;
+        background: rgb(70, 170, 170);
+        margin-top: 30px
+    }
+
+    .disappear {
+        background: transparent
+    }
+
+    .face {
+        color: #1d475f;
+        font-size: 3em
+    }
+
+    .colophon {
+        background: transparent;
+        border-style: solid;
+        border-left-width: 10px;
+        border-right-width: 10px;
+        border-radius: 0px;
+        border-color: rgb(70, 170, 170);
+        margin-top: 0px;
+        -webkit-transition: ease all .5s;
+        -moz-transition: ease all .5s;
+        -ms-transition: ease all .5s;
+        -o-transition: ease all .5s;
+    }
+
+    .circle {
+        position: absolute;
+        right: 10%;
+    }
+}
+/* FLEXBOX: */
 @supports (display: grid) {
     @media screen and (min-width: 800px) {
 
         /* The "fr" here represents the "fraction" of space in the grid.
         So when we scale back the window to 800px (or your ipad) the aside
         and sidebar are 50/50 on what space they take up */
-        .site {
+        .flexbox {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: auto 1fr;
-            grid-template-areas: "content-head content-head"
-            "main aside"
-            "main sidebar"
-            "footer footer";
+            grid-template-areas:
+                "main aside"
+                "main sidebar"
+                "main asidefooter"
+        }
+
+        header {
+            background-color: rgb(57, 100, 100);
         }
 
         .mastaside {
@@ -112,13 +235,15 @@ The spacing, color & typography:
         .colophon {
             grid-area: footer;
         }
-
     }
 
     @media screen and (min-width: 1200px) {
-        .site {
-            grid-template-columns: 2fr 1fr;
-            grid-template-areas: "content-head content-head content-head""main aside aside""main sidebar footer";
+        .flexbox {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "main aside"
+                "main asidefooter"
+                "main sidebar footer";
         }
     }
 }
