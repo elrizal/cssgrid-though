@@ -1,5 +1,5 @@
 # CSS Grid example
-In recent years, flexbox has pretty much taken web design by storm, Bootstrap uses it, big tech companies use it, yo mama uses it. Rather than eye-balling and creating confusing floats, this layout method helps us create elements that will flexible to changing screen widths. Feel free to clone this, and mess around a bit. 
+An alternative approach to the wireframe mock up using [CSS Grid](https://gridbyexample.com/what/). Rather than agonize over floats and exacting pixels, we can use this more modern approach to create grids from CSS that are also responsive.
 
 Also, checkout these articles and videos to get a idea sense of why developers and designers love it and how to use it:
 - [CSS Grid Changes EVERYTHING](https://www.youtube.com/watch?v=7kVeCqQCxlk&list=LLHj1t9n_YN0ePCYpOi86Urg&index=2&t=708s)
